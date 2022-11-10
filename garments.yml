@@ -1,14 +1,14 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   config:
     activate:
       on-profile: default
   application:
-    name: clothes
+    name: garments
   datasource:
-    url: jdbc:mysql://${clothes_db:localhost}:3306/clothes_db
+    url: jdbc:mysql://${garments_db:localhost}:3306/garments_db
     username: root
     password: 123123
   jpa:
@@ -17,7 +17,7 @@ spring:
 
 app:
   environment:
-    clothes-host: ${clothes-host:localhost}
+    garments-host: ${garments-host:localhost}
     vuelos-host: ${vuelos-host:localhost}
     hoteles-host: ${hoteles-host:localhost}
 
@@ -31,7 +31,7 @@ spring:
     activate:
       on-profile: test
   application:
-    name: clothes
+    name: garments
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb
@@ -45,4 +45,4 @@ spring:
 
 app:
   environment:
-    clothes-host: none
+    garments-host: none
