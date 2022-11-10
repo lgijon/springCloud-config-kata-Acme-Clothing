@@ -18,8 +18,6 @@ spring:
 app:
   environment:
     customisation-host: ${customisation-host:localhost}
-    vuelos-host: ${vuelos-host:localhost}
-    hoteles-host: ${hoteles-host:localhost}
 
 --- # Testing configuration
 
