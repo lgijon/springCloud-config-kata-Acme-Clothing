@@ -6,9 +6,9 @@ spring:
     activate:
       on-profile: default
   application:
-    name: clothings
+    name: clothing
   datasource:
-    url: jdbc:mysql://${clothings_db:localhost}:3306/clothings_db
+    url: jdbc:mysql://${clothing_db:localhost}:3306/clothing_db
     username: root
     password: 123123
   jpa:
@@ -17,7 +17,7 @@ spring:
 
 app:
   environment:
-    clothings-host: ${clothings-host:localhost}
+    clothing-host: ${clothing-host:localhost}
 
 --- # Testing configuration
 
@@ -29,7 +29,7 @@ spring:
     activate:
       on-profile: test
   application:
-    name: clothings
+    name: clothing
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb
@@ -43,4 +43,4 @@ spring:
 
 app:
   environment:
-    clothings-host: none
+    clothing-host: none
