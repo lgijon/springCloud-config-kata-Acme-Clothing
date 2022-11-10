@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: default
+  application:
+    name: catalogue
+  datasource:
+    url: jdbc:mysql://${catalogue_db:localhost}:3306/catalogue_db
+    username: root
+    password: 123123
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+--- # Testing configuration
+
+server:
+  port: ${random.int(5000,5100)}
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  application:
+    name: catalogue
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: root
+    password: 123123
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+app:
+  environment:
+    catalogue-host: none

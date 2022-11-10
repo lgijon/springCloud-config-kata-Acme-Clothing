@@ -1,0 +1,48 @@
+server:
+  port: 8081
+
+spring:
+  config:
+    activate:
+      on-profile: default
+  application:
+    name: clothes
+  datasource:
+    url: jdbc:mysql://${clothes_db:localhost}:3306/clothes_db
+    username: root
+    password: 123123
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+app:
+  environment:
+    clothes-host: ${clothes-host:localhost}
+    vuelos-host: ${vuelos-host:localhost}
+    hoteles-host: ${hoteles-host:localhost}
+
+--- # Testing configuration
+
+server:
+  port: ${random.int(5000,5100)}
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  application:
+    name: clothes
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: root
+    password: 123123
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+app:
+  environment:
+    clothes-host: none
